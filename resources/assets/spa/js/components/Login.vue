@@ -13,7 +13,7 @@
                 </div>
 
 
-                <form method="POST" @submit.prevent=login()>
+                <form method="POST" @submit.prevent="login()">
 
                     <div class="row">
                         <div class="input-field col s12">
