@@ -23,6 +23,11 @@ Route::get('/home', function() {
     return redirect()->route('admin.home');
 });
 
+Route::get('/login', function() {
+    return redirect()->route('admin.login');
+});
+
+
 Route::get('/app', function () {
     return view('layouts.spa');
 });
@@ -37,6 +42,7 @@ Route::group([
 
     Route::group(['middleware' => 'can:access-admin'], function() {
         Route::get('/home', 'HomeController@index')->name('home');
+        Route::resource('banks','Admin\BanksController', ['except' => 'show']);
     });
 
 

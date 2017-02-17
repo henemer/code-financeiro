@@ -42,7 +42,7 @@ class LoginController extends Controller
     {
         $data = $request->only($this->username(), 'password');
 
-        $data['role'] = \CodeFin\User::ROLE_ADMIN;
+        $data['role'] = \CodeFin\Models\User::ROLE_ADMIN;
 
         return $data;
     }

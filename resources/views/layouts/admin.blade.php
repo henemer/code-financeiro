@@ -27,15 +27,30 @@
                 <?php $menuConfig = [
                     'name' => Auth::user()->name,
                     'menus' => [
-                        ['name' => 'Contas a Pagar', 'url' => '/teste', 'dropdownId' => 'teste'],
-                        ['name' => 'Contas a Receber', 'url' => '/teste1'],
+                        [
+                            'name' => 'Banco',
+                            'url' =>route('admin.banks.index'),
+                            'active' =>isRouteActive('admin.banks.index')
+                        ],
+                        [
+                            'name' => 'Contas a Pagar', 'dropdownId' => 'teste'
+                        ]
                     ],
                     'menusDropdown' => [
                         [
                             'id' => 'teste',
                             'items' => [
-                                ['name' => "Listar Contas", 'url' => '/listar'],
-                                ['name' => "Listar Contas", 'url' => '/criar']
+                                [
+                                    'name' => 'Banco',
+                                    'url' =>route('admin.banks.index'),
+                                    'active' =>isRouteActive('admin.banks.index')
+                                ],
+                                [
+                                    'name' => 'Banco Edit',
+                                    'url' =>route('admin.banks.index'),
+                                    'active' =>isRouteActive('admin.banks.edit')
+                                ]
+
                             ]
                         ]
                     ],

@@ -19,7 +19,7 @@
 //    import {User} from '../services/resources';
     export default {
         ready() {
-            console.log('carregou dasjboard');
+            // console.log('carregou dasjboard');
 
         }
     }
