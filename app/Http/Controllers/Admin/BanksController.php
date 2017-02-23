@@ -2,6 +2,8 @@
 
 namespace CodeFin\Http\Controllers\Admin;
 
+use CodeFin\Events\BankCreatedEvent;
+use CodeFin\Models\Bank;
 use CodeFin\Http\Controllers\Controller;
 use CodeFin\Http\Controllers\Response;
 use Illuminate\Http\Request;
@@ -36,6 +38,8 @@ class BanksController extends Controller
     {
         $banks = $this->repository->paginate();
 
+        event(new BankCreatedEvent(new Bank()));
+
 //        if (request()->wantsJson()) {
 //
 //            return response()->json([
@@ -60,7 +64,6 @@ class BanksController extends Controller
     public function store(BankCreateRequest $request)
     {
         $data = $request->all();
-        $data['logo'] = md5(time()). '.jpeg';
         $this->repository->create($data);
 
 //        if ($request->wantsJson()) {

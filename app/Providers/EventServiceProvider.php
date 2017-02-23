@@ -2,6 +2,9 @@
 
 namespace CodeFin\Providers;
 
+
+use CodeFin\Events\BankStoredEvent;
+use CodeFin\Listeners\BankLogoUploadListner;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 
@@ -13,9 +16,9 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        'CodeFin\Events\SomeEvent' => [
-            'CodeFin\Listeners\EventListener',
-        ],
+        BankStoredEvent::class => [
+            BankLogoUploadListner::class
+        ]
     ];
 
     /**
